@@ -55,8 +55,9 @@
                   <th>Title</th>
                   <th>Description</th>
                   <th>Categories</th>
-                  <th>Status</th>
                   <th>Image</th>
+                  <th>Status</th>
+
                   <th>Action</th>
                 </tr>
               </thead>
@@ -70,6 +71,17 @@
 
                 <td>{{@$v->category->name}}</td>
 
+
+
+                <td>
+                    @if(empty($v->image))
+                    <img src="{{asset('image.png')}}" width="100px" height="100px">
+
+                    @else
+                    <img src="{{asset('uploads_images/'.$v->image)}}" width="100px" height="100px">
+
+                    @endif
+                </td>
                 <td>
 
                     @if($v->status==1)
@@ -78,16 +90,6 @@
 
                     <span class="badge badge-danger">Deactive</span>
 
-
-                    @endif
-                </td>
-
-                <td>
-                    @if(empty($v->image))
-                    <img src="{{asset('image.png')}}" width="100px" height="100px">
-
-                    @else
-                    <img src="{{asset('uploads_images/'.$v->image)}}" width="100px" height="100px">
 
                     @endif
                 </td>
