@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 
-
+<script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
 
 <div class="content-header">
     <div class="container-fluid">
@@ -48,7 +48,7 @@
 
           <div class="form-group">
             <label for="description">description:</label> <br>
-            <textarea name="description" id="textAreaExample1" cols="100" class="form-control" rows="10" placeholder="Enter your query" >{{old('description')}} </textarea>
+            <textarea name="description" id="body" cols="100" class="form-control" rows="10" placeholder="Enter your query" >{{old('description')}} </textarea>
           </div>
 
           <div class="form-group">
@@ -88,4 +88,11 @@
 </div>
   </div>
 </div>
+<script>
+    ClassicEditor
+    .create( document.querySelector( '#body' ) )
+    .catch( error => {
+    console.error( error );
+    } );
+    </script>
 @endsection

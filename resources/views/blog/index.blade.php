@@ -65,8 +65,8 @@
               <tr>
                 <td>{{$v->id}}</td>
                 <td>{{$v->title}}</td>
-                <td>{{$v->description}}</td>
-                <td>{{$v->category->name}}</td>
+                <td>{!!$v->description!!}</td>
+                <td>{{@$v->category->name}}</td>
 
                 <td>
 

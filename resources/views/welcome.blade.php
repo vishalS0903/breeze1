@@ -88,7 +88,11 @@
                                     <div class="card-body">
                                         <div class="small text-muted">{{$featured_blog->created_at}}</div>
                                         <h2 class="card-title">{{$featured_blog->title}}</h2>
-                                        <p class="card-text">{{$featured_blog->description}}</p>
+                                        <p class="card-text">
+                                            {!! Str::words($featured_blog->description, 10, ' ...') !!}
+
+                                            {{-- {!!$featured_blog->description!!,50} --}}
+                                            </p>
                                         <a class="btn btn-primary" href="{{route('post.show',$featured_blog->id)}}">Read more →</a>
                                     </div>
                                 </div>
@@ -110,7 +114,7 @@
                                             <div class="card-body">
                                                 <div class="small text-muted">{{$blog->created_at}}</div>
                                                 <h2 class="card-title h4">{{$blog->title}}</h2>
-                                                <p class="card-text">{{$blog->description}}</p>
+                                                <p class="card-text">{!!$blog->description!!}</p>
                                                 <a class="btn btn-primary" href="{{route('post.show',$blog->id)}}">Read more →</a>
                                             </div>
                                         </div>
