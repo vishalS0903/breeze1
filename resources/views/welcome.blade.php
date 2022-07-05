@@ -54,14 +54,14 @@
                     <!-- Responsive navbar-->
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container">
-                            <a class="navbar-brand" href="#!">Start Bootstrap</a>
+                            <a class="navbar-brand" href="{{route('welcome')}}">Blog Application</a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{route('welcome')}}">Home</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
-                                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
+                                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{route('dashboard')}}">Login</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                             <div class="col-lg-8">
                                 <!-- Featured blog post-->
                                 <div class="card mb-4">
-                                    <a href="#!">
+                                    <a href="{{route('post.show',$featured_blog->id)}}">
                                         <img class="card-img-top" width="850px" height="350px" src="{{asset('uploads_images/'.$featured_blog->image)}}" alt="..." />
                                     </a>
                                     <div class="card-body">
@@ -102,7 +102,7 @@
                                     <div class="col-lg-6">
                                         <!-- Blog post-->
                                         <div class="card mb-4">
-                                            <a href="#!">
+                                            <a href="{{route('post.show',$blog->id)}}">
                                                 @if (empty($blog->image))
                                                 <img class="card-img-top" width="500px" height="250px" src="{{asset('image.png')}}" alt="..." />
 
@@ -114,7 +114,8 @@
                                             <div class="card-body">
                                                 <div class="small text-muted">{{$blog->created_at}}</div>
                                                 <h2 class="card-title h4">{{$blog->title}}</h2>
-                                                <p class="card-text">{!!$blog->description!!}</p>
+                                                {{-- <p class="card-text">{!!$blog->description!!}</p> --}}
+                                               <p class="card-text"> {!! Str::words($blog->description, 10, ' ...') !!}</p>
                                                 <a class="btn btn-primary" href="{{route('post.show',$blog->id)}}">Read more →</a>
                                             </div>
                                         </div>
@@ -185,18 +186,21 @@
                                     <div class="card-header">Categories</div>
                                     <div class="card-body">
                                         <div class="row">
+                                            @foreach ($categories as $cat)
                                             <div class="col-sm-6">
+
                                                 <ul class="list-unstyled mb-0">
-
-                                                    @foreach ($categories as $cat)
+                                                     <div>
                                                     <li> <a href="">{{$cat->name}}</a> </li>
+                                                </div>
 
-                                                    @endforeach
                                                     {{-- <li><a href="#!">Web Design</a></li>
                                                     <li><a href="#!">HTML</a></li>
                                                     <li><a href="#!">Freebies</a></li> --}}
                                                 </ul>
                                             </div>
+
+                                            @endforeach
                                             {{-- <div class="col-sm-6">
                                                 <ul class="list-unstyled mb-0">
                                                     <li><a href="#!">JavaScript</a></li>

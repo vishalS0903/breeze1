@@ -36,7 +36,7 @@
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Responsive Hover Table</h3>
+          {{-- <h3 class="card-title">Responsive Hover Table</h3> --}}
 
           <div class="card-tools">
             <div class="input-group input-group-sm" style="width: 150px;">
@@ -54,9 +54,9 @@
                   <th>ID</th>
                   <th>Title</th>
                   <th>Description</th>
-                  <th>categories</th>
+                  <th>Categories</th>
                   <th>Status</th>
-                  <th>image</th>
+                  <th>Image</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -65,7 +65,9 @@
               <tr>
                 <td>{{$v->id}}</td>
                 <td>{{$v->title}}</td>
-                <td>{!!$v->description!!}</td>
+                {{-- <td>{!!$v->description!!}</td> --}}
+                 <td>{!! Str::words($v->description, 5, ' ...') !!}</td>
+
                 <td>{{@$v->category->name}}</td>
 
                 <td>

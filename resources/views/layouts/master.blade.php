@@ -292,7 +292,7 @@
             <a href="{{route('blog.index')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                blogs
+                Blogs
                 {{-- <span class="right badge badge-danger">New</span> --}}
               </p>
             </a>

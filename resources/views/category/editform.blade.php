@@ -9,7 +9,7 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
             <li class="breadcrumb-item active">Category v1</li>
           </ol>
         </div><!-- /.col -->
@@ -29,8 +29,8 @@
       </ul>
     </div>
     @endif
-
-
+</div>
+<div class="container">
     <div class="card card-primary">
         <div class="card-header">
           <h3 class="card-title">Edit Data</h3>
@@ -39,6 +39,7 @@
 
     <form action="{{route('category.update',$product->id)}}" method="POST">
         @csrf
+        <div class="card-body">
         <div class="form-group">
           <label for="name">Name:</label>
           <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name" name="name" value="{{$product->name}}">
@@ -52,6 +53,7 @@
                 <option value="0"  @if ($product->status==0) selected='selected' @endif>Deactive</option>
             </select>
           </div>
+        </div>
           <div class="card-footer">
         <button type="submit" class="btn btn-primary">Update</button>
     </div>
@@ -61,5 +63,6 @@
     </div>
     </div>
 </div>
+
 
 @endsection

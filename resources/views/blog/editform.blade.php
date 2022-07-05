@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('content')
 
+<script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+
 
 <div class="content-header">
     <div class="container-fluid">
@@ -10,8 +12,8 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Blogs v1</li>
+            <li class="breadcrumb-item"><a href="{{route('welcome')}}">Home</a></li>
+            <li class="breadcrumb-item active">Blogs </li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -31,15 +33,25 @@
       </ul>
     </div>
     @endif
+</div>
+
+<div class="container">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3>Blog Edit Form</h3>
+        </div>
+
     <form action="{{route('blog.update',$product->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
+        <div class="card-body">
         <div class="form-group">
+
           <label for="text">Title:</label>
           <input type="text" class="form-control" id="text" aria-describedby="emailHelp" placeholder="Enter text" name="title" value="{{$product->title}}">
         </div>
         <div class="form-group">
           <label for="description">description:</label> <br>
-          <textarea name="description" id="description" cols="100" class="form-control" rows="10" placeholder="Enter your query" value="{{$product->description}}">{{$product->description}}</textarea>
+          <textarea name="description" id="body" cols="100" class="form-control" rows="10" placeholder="Enter your query" value="{{$product->description}}">{{$product->description}}</textarea>
         </div>
 
 
@@ -55,7 +67,7 @@
                 @endforeach
             </select>
 
-
+        </div>
 
         <div class="form-group">
             <label for="title">Status</label>
@@ -69,7 +81,7 @@
             <label for="image"> Image</label>
             <input type="file" class="form-control" name="image" placeholder="upload profile image" value="{{$product->image}}">
           </div>
-
+        </div>
           <div class="card-footer">
         <button type="submit" class="btn btn-primary">Update</button>
     </div>
@@ -78,4 +90,12 @@
         <a href="{{route('blog.index')}}"><button type="submit" class="btn btn-primary">back</button></a>
     </div>
     </div>
+    </div>
+    <script>
+        ClassicEditor
+        .create( document.querySelector( '#body' ) )
+        .catch( error => {
+        console.error( error );
+        } );
+        </script>
 @endsection
