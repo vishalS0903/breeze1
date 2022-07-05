@@ -77,9 +77,10 @@
           <label for="description">description:</label> <br>
           <textarea name="description" id="description" cols="100" class="form-check-input" rows="10" placeholder="Enter your query" >{{old('description')}} </textarea>
         </div>
-
-
-
+        <div class="form-group">
+            <label for="text">status:</label>
+            <input type="text" class="form-control" id="status" aria-describedby="emailHelp" placeholder="Enter status" name="status" value="{{old('status')}}">
+          </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
