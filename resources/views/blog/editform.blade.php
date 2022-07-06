@@ -79,7 +79,7 @@
           </div>
           <div class="form-group">
             <label for="image"> Image</label>
-            <input type="file" class="form-control" name="image" placeholder="upload profile image" value="{{$product->image}}">
+            <input type="file" class="form-control" name="image" placeholder="upload profile image" value="{{old('image')??$product->image}}">
           </div>
         </div>
           <div class="card-footer">

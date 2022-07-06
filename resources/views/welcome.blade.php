@@ -155,7 +155,11 @@
                                     </div> --}}
                                 </div>
                                 <!-- Pagination-->
-                                {{$blogs->links()}}
+                                <nav aria-label="Pagination">
+                                    <hr class="my-0" />
+                                    <ul class="pagination justify-content-center my-4">
+                                 {{$blogs->links()}} </ul>
+                                </nav>
                                 {{-- <nav aria-label="Pagination">
                                     <hr class="my-0" />
                                     <ul class="pagination justify-content-center my-4">
@@ -212,10 +216,10 @@
                                     </div>
                                 </div>
                                 <!-- Side widget-->
-                                <div class="card mb-4">
+                                {{-- <div class="card mb-4">
                                     <div class="card-header">Side Widget</div>
                                     <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
